@@ -18,9 +18,7 @@ def cont():
 
 @app.route('/contact.html', methods=['GET', 'POST'])
 def contact():
-    if request.method == 'GET':
-        return render_template("contact.html")
-    elif request.method == 'POST':
+    if request.method == 'POST':
         print("We received POST")
         print(request.form)
-        return redirect ("/contact.html")
+    return render_template("/contact.html")
