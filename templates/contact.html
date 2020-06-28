@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}
+Kontakt
+{% endblock %}
+
+{% block content %}
+        <h2 class="first">Kontakt:</h2>
+            <li><strong>email:</strong> nowakowska.just@gmail.com </li>
+            <li><strong>telefon:</strong> 505-350-391</li>
+        <h2>Wyślij wiadomość</h2>
+        <form action="" method="POST">
+            <!-- <input name="message" style="width: 300px; height: 150px;" /> -->
+            <textarea id="" name="message" rows="7" cols="40"></textarea>
+            <p><input type="submit"/></p>
+        </form>
+    {% endblock %}

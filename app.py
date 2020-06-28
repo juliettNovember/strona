@@ -1,19 +1,26 @@
 from flask import Flask
 from flask import render_template
+from flask import request, redirect
 
 app = Flask (__name__)
 
-@app.route('/omnie')
+@app.route('/', methods=['GET'])
 def home():
-    return render_template("omnie.html")
+    return redirect ("/me")
 
-# @app.route('/kontakt.html')
-# def contact():
-#     inscriptions = "Kontakt"
-#     inscription = ["email: nowakowska.just@gmail.com ", "telefon: 505-350-391"]
-#     return render_template("kontakt.html", inscriptions=inscriptions)
+@app.route('/me', methods=['GET'])
+def me():
+    return render_template("me.html")
 
-@app.route('/kontakt.html')
+@app.route('/contact', methods=['GET'])
+def cont():
+    return redirect("contact.html")
+
+@app.route('/contact.html', methods=['GET', 'POST'])
 def contact():
-    inscription = ["imię"]
-    return render_template("omnie.html", inscription=inscription)
+    if request.method == 'GET':
+        return render_template("contact.html")
+    elif request.method == 'POST':
+        print("We received POST")
+        print(request.form)
+        return redirect ("/contact.html")
